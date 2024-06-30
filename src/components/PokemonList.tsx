@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Pokemon } from "@/types/pokemon";
 
 const PokemonList: React.FC = () => {
@@ -31,9 +32,11 @@ const PokemonList: React.FC = () => {
           {pokemonData.map((pokemon) => (
             <div key={pokemon.id} className="pokemon p-4 border rounded-lg">
               <Link href={`/pokemon/${pokemon.id}`}>
-                <img
+                <Image
                   src={pokemon.sprites.front_default}
                   alt={pokemon.korean_name}
+                  width={96}
+                  height={96}
                 />
                 <p>{pokemon.korean_name}</p>
                 <p>도감번호: {pokemon.id}</p>

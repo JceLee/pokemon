@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface PokemonDetailsProps {
   pokemon: {
@@ -49,10 +50,12 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({ pokemon }) => {
         <p>No. {pokemon.id.toString().padStart(4, "0")}</p>
       </div>
       <div className="p-4 text-black flex flex-col justify-start items-center">
-        <img
-          src={pokemon.sprites.front_default}
-          alt={pokemon.korean_name}
-          className="mx-auto"
+        <Image
+            src={pokemon.sprites.front_default}
+            alt={pokemon.korean_name}
+            className="mx-auto"
+            width={96}
+            height={96}
         />
         <p className="text-center text-xl my-2">이름: {pokemon.korean_name}</p>
         <div className="flex gap-2">
