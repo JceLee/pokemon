@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import PokemonDetails from "../../../components/PokemonDetails";
 
 const fetchPokemonData = async (id: string) => {
-  const response = await fetch(`http://localhost:3000/api/pokemons/${id}`);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const response = await fetch(`${apiUrl}/api/pokemons/${id}`);
   if (!response.ok) {
     return null;
   }
